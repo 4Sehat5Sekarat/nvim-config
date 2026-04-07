@@ -3,35 +3,35 @@ return {
   name = "catppuccin",
   config = function()
     require("catppuccin").setup({
-      flavour                = "auto",
-      background             = {
+      flavour = "mocha",
+      background = {
         light = "latte",
         dark = "mocha",
       },
 
       transparent_background = true,
-      show_end_of_buffer     = false,
-      term_colors            = false,
+      show_end_of_buffer = false,
+      term_colors = false,
 
-      dim_inactive           = {
+      dim_inactive = {
         enabled = false, -- ubah ke true bila mau gelapkan window tak aktif
         shade = "dark",
         percentage = 0.15,
       },
 
-      no_italic              = false,
-      no_bold                = false,
-      no_underline           = false,
+      no_italic = true,
+      no_bold = false,
+      no_underline = false,
 
       -- Gaya umum (highlight groups)
-      styles                 = {
+      styles = {
         comments = {},
         conditionals = {},
         -- grup lain dibiarkan kosong → gunakan gaya default tema
       },
 
       -- Gaya LSP
-      lsp_styles             = {
+      lsp_styles = {
         virtual_text = {
           errors = { "italic" },
           hints = { "italic" },
@@ -49,14 +49,14 @@ return {
         },
       },
 
-      color_overrides        = {}, -- isi bila ingin menimpa warna palet
-      custom_highlights      = {}, -- isi bila ingin highlight khusus
+      color_overrides = {}, -- isi bila ingin menimpa warna palet
+      custom_highlights = {}, -- isi bila ingin highlight khusus
 
-      default_integrations   = true,
-      auto_integrations      = true,
+      default_integrations = true,
+      auto_integrations = true,
 
       -- Integrasi dengan plugin lain
-      integrations           = {
+      integrations = {
         cmp = true,
         gitsigns = true,
         nvimtree = true,
