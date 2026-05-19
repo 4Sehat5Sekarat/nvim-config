@@ -14,6 +14,15 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.relativenumber = false
     vim.opt_local.wrap = true
     vim.opt_local.linebreak = true
+    vim.opt.signcolumn = "no"
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "text",
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt.signcolumn = "no"
   end,
 })
 
