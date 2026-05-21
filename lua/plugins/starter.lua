@@ -15,14 +15,9 @@ return {
   "snacks.nvim",
   opts = {
     dashboard = {
-      width = 30,
+      width = 35,
       row = nil,
       col = nil,
-      formats = {
-        key = function(item)
-          return { { "-", hl = "special" }, { item.key, hl = "key" } }
-        end,
-      },
       preset = {
         pick = function(cmd, opts)
           return LazyVim.pick(cmd, opts)()
@@ -54,9 +49,9 @@ return {
         ---[[
         {
           section = "terminal",
-          cmd = "chafa --scale max --center on ~/.config/nvim/.alice.png; sleep 0.1 && true",
+          cmd = "chafa --center on ~/.config/nvim/.alice.png; sleep 0.1 && printf '\\n'",
           height = 10,
-          padding = 1,
+          padding = 0,
         },
         --]]
 
@@ -69,7 +64,7 @@ return {
           pane = 3,
           limit = 9,
         },
-        { section = "startup", pane = 2 },
+        { section = "startup", pane = 1, padding = 1 },
       },
     },
   },
