@@ -1,5 +1,7 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
+require("mpd_playlist").setup()
+require("StringUrl").setup()
 
 vim.opt.relativenumber = false
 
