@@ -33,3 +33,14 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
   end,
 })
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*.sav",
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
+    vim.opt.signcolumn = "no"
+  end,
+})
