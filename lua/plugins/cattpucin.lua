@@ -14,7 +14,7 @@ return {
       term_colors = false,
 
       dim_inactive = {
-        enabled = false, -- ubah ke true bila mau gelapkan window tak aktif
+        enabled = false, -- Ubah ke true bila mau gelapkan window tak aktif
         shade = "dark",
         percentage = 0.15,
       },

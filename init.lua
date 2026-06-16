@@ -3,8 +3,3 @@ require("config.lazy")
 require("user.mpd_playlist").setup()
 require("user.StringUrl").setup()
 require("user.eww").setup()
-
-vim.opt.relativenumber = false
-
-vim.keymap.set("n", "<down>", "gj")
-vim.keymap.set("n", "<up>", "gk")
