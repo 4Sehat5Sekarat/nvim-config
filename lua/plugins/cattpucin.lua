@@ -3,70 +3,74 @@ return {
   name = "catppuccin",
   config = function()
     require("catppuccin").setup({
-      flavour = "mocha",
-      background = {
+      flavour = "auto", -- latte, frappe, macchiato, mocha
+      background = { -- :h background
         light = "latte",
         dark = "mocha",
       },
-
-      transparent_background = true,
-      show_end_of_buffer = false,
-      term_colors = false,
-
+      transparent_background = true, -- disables setting the background color.
+      float = {
+        transparent = true, -- enable transparent floating windows
+        solid = false, -- use solid styling for floating windows, see |winborder|
+      },
+      term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
       dim_inactive = {
-        enabled = false, -- Ubah ke true bila mau gelapkan window tak aktif
-        shade = "dark",
-        percentage = 0.15,
+        enabled = false, -- dims the background color of inactive window
+        shade = "light",
+        percentage = 0.15, -- percentage of the shade to apply to the inactive window
       },
-
-      no_italic = true,
-      no_bold = false,
-      no_underline = false,
-
-      -- Gaya umum (highlight groups)
-      styles = {
-        comments = {},
-        conditionals = {},
-        -- grup lain dibiarkan kosong → gunakan gaya default tema
+      no_italic = false, -- Force no italic
+      no_bold = false, -- Force no bold
+      no_underline = false, -- Force no underline
+      styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+        comments = { "italic" }, -- Change the style of comments
+        conditionals = { "italic" },
+        loops = {},
+        functions = { "bold" },
+        keywords = {},
+        strings = {},
+        variables = {},
+        numbers = {},
+        booleans = {},
+        properties = {},
+        types = {},
+        operators = {},
+        -- miscs = {}, -- Uncomment to turn off hard-coded styles
       },
-
-      -- Gaya LSP
-      lsp_styles = {
+      lsp_styles = { -- Handles the style of specific lsp hl groups (see `:h lsp-highlight`).
         virtual_text = {
-          errors = { "italic" },
+          errors = { "underline" },
           hints = { "italic" },
           warnings = { "italic" },
           information = { "italic" },
+          ok = { "italic" },
         },
         underlines = {
           errors = { "underline" },
           hints = { "underline" },
           warnings = { "underline" },
           information = { "underline" },
+          ok = { "underline" },
         },
         inlay_hints = {
           background = true,
         },
       },
-
-      color_overrides = {}, -- isi bila ingin menimpa warna palet
-      custom_highlights = {}, -- isi bila ingin highlight khusus
-
+      color_overrides = {},
+      custom_highlights = {},
       default_integrations = true,
-      auto_integrations = true,
-
-      -- Integrasi dengan plugin lain
+      auto_integrations = false,
       integrations = {
         cmp = true,
         gitsigns = true,
         nvimtree = true,
-        notify = false, -- ubah ke true bila pakai nvim-notify
+        notify = false,
+        snacks = true,
         mini = {
           enabled = true,
-          indentscope_color = "mocha", -- beri nama warna (misal "lavender") bila ingin custom
+          indentscope_color = "lavender",
         },
-        -- Tambahkan integrasi lain di sini bila diperlukan,
-        -- contoh: telescope = true, treesitter = true, lualine = true, dll.
+        -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
       },
     })
   end,

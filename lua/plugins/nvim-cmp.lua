@@ -12,7 +12,14 @@ return {
     opts.mapping = cmp.mapping.preset.insert({
       ["<CR>"] = cmp.mapping.confirm({ select = false }), -- tidak auto pilih
     })
-
+    opts.window = {
+      completion = cmp.config.window.bordered({
+        border = "rounded",
+      }),
+      documentation = cmp.config.window.bordered({
+        border = "rounded",
+      }),
+    }
     return opts
   end,
 }
