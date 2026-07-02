@@ -45,14 +45,14 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufEnter", "TextChanged", "TextChangedI" }, {
-  callback = function()
-    local max_len = 0
-
-    for _, line in ipairs(vim.api.nvim_buf_get_lines(0, 0, -1, false)) do
-      max_len = math.max(max_len, vim.fn.strdisplaywidth(line))
-    end
-
-    vim.opt_local.wrap = max_len > 100
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufEnter", "TextChanged", "TextChangedI" }, {
+--   callback = function()
+--     local max_len = 0
+--
+--     for _, line in ipairs(vim.api.nvim_buf_get_lines(0, 0, -1, false)) do
+--       max_len = math.max(max_len, vim.fn.strdisplaywidth(line))
+--     end
+--
+--     vim.opt_local.wrap = max_len > 100
+--   end,
+-- })
