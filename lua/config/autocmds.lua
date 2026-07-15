@@ -7,6 +7,20 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+--[[
+vim.api.nvim_create_autocmd({ "BufEnter", "TextChanged", "TextChangedI" }, {
+  callback = function()
+    local max_len = 0
+
+    for _, line in ipairs(vim.api.nvim_buf_get_lines(0, 0, -1, false)) do
+      max_len = math.max(max_len, vim.fn.strdisplaywidth(line))
+    end
+
+    vim.opt_local.wrap = max_len > 100
+  end,
+})
+--]]
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
@@ -45,14 +59,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
--- vim.api.nvim_create_autocmd({ "BufEnter", "TextChanged", "TextChangedI" }, {
---   callback = function()
---     local max_len = 0
---
---     for _, line in ipairs(vim.api.nvim_buf_get_lines(0, 0, -1, false)) do
---       max_len = math.max(max_len, vim.fn.strdisplaywidth(line))
---     end
---
---     vim.opt_local.wrap = max_len > 100
---   end,
--- })
+vim.api.nvim_set_hl(0, "SnacksInputTitle", { italic = false })
+vim.api.nvim_set_hl(0, "SnacksInputBorder", { italic = false })
+vim.api.nvim_set_hl(0, "SnacksInput", { italic = false })

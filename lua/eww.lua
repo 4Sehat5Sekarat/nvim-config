@@ -1,7 +1,5 @@
 -- yuck.nvim (single file, treesitter-ready + vim fallback)
 
-local M = {}
-
 -- =========================
 -- FILETYPE
 -- =========================
@@ -84,21 +82,17 @@ end
 -- =========================
 -- AUTO SETUP
 -- =========================
-function M.setup()
-  setup_highlight()
+setup_highlight()
 
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = "yuck",
-    callback = function()
-      vim.bo.commentstring = ";; %s"
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "yuck",
+  callback = function()
+    vim.bo.commentstring = ";; %s"
 
-      -- try treesitter first, fallback if not available
-      local ok = setup_treesitter()
-      if not ok then
-        setup_vim_syntax()
-      end
-    end,
-  })
-end
-
-return M
+    -- try treesitter first, fallback if not available
+    local ok = setup_treesitter()
+    if not ok then
+      setup_vim_syntax()
+    end
+  end,
+})
