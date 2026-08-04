@@ -1,3 +1,6 @@
+local header = 2
+
+-- No need to touch below
 local header_ascii = [[
 ⣿⣿⣿⡷⠊⡢⡹⣦⡑⢂⢕⢂⢕⢂⢕⢂⠕⠔⠌⠝⠛⠶⠶⢶⣦⣄⢂⢕⢂⢕
 ⣿⣿⠏⣠⣾⣦⡐⢌⢿⣷⣦⣅⡑⠕⠡⠐⢿⠿⣛⠟⠛⠛⠛⠛⠡⢷⡈⢂⢕⢂
@@ -10,6 +13,22 @@ local header_ascii = [[
 ⡣⡘⢄⠙⣾⣾⣾⣿⣿⣿⣿⣿⣿⡀⢐⢕⢕⢕⢕⢕⡘⣿⣿⣿⣿⣿⣿⠏⠠⠈
 ⠌⢊⢂⢣⠹⣿⣿⣿⣿⣿⣿⣿⣿⣧⢐⢕⢕⢕⢕⢕⢅⣿⣿⣿⣿⡿⢋⢜⠠⠈
 ]]
+
+local function header_set(header_type)
+  header_type = header_type or 1
+  local M = {}
+  if header_type == 1 then
+    M = { section = "header", pane = 1 }
+  elseif header_type == 2 then
+    M = {
+      section = "terminal",
+      cmd = "chafa --center on ~/.config/nvim/.alice.png; sleep 0.1 && printf '\\n'",
+      height = 10,
+      padding = 0,
+    }
+  end
+  return M
+end
 
 return {
   "snacks.nvim",
@@ -44,16 +63,7 @@ return {
         },
       },
       sections = {
-        -- { section = "header", pane = 1 },
-
-        ---[[
-        {
-          section = "terminal",
-          cmd = "chafa --center on ~/.config/nvim/.alice.png; sleep 0.1 && printf '\\n'",
-          height = 10,
-          padding = 0,
-        },
-        --]]
+        header_set(header),
 
         { title = "Keymaps", section = "keys", indent = 2, padding = 1, pane = 2 },
         {
