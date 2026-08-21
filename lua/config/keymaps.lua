@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 local keyset = vim.keymap.set
 
-keyset("t", "<C-b>", [[<C-\><C-n>]], { noremap = true, silent = true })
+keyset("t", "<C-o>", [[<C-\><C-n>]], { noremap = true, silent = true })
 keyset("n", "<leader>qQ", "<cmd>lua Snacks.dashboard.open()<CR>", {
   noremap = true,
   silent = true,
