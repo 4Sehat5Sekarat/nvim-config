@@ -4,16 +4,3 @@
 local keyset = vim.keymap.set
 
 keyset("t", "<C-o>", [[<C-\><C-n>]], { noremap = true, silent = true })
-keyset("n", "<leader>qQ", "<cmd>lua Snacks.dashboard.open()<CR>", {
-  noremap = true,
-  silent = true,
-  buffer = true,
-  desc = "Back to starter",
-})
-
-keyset("n", "<leader>qQ", "<cmd>lua Snacks.dashboard.open()<CR>", {
-  noremap = true,
-  silent = true,
-  buffer = true,
-  desc = "Back to starter",
-})

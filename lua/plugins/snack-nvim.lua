@@ -23,8 +23,8 @@ local function header_set(header_type)
     M = {
       section = "terminal",
       cmd = "chafa --center on ~/.config/nvim/.alice.png; sleep .1",
-      height = 11,
-      padding = 0,
+      height = 10,
+      padding = 1,
     }
   end
   return M
@@ -59,7 +59,7 @@ return {
           { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
           { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-          { icon = " ", key = "t", desc = "Term", action = ":terminal" },
+          { icon = " ", key = "t", desc = "Terminal", action = ":lua vim.cmd('terminal'); vim.cmd('startinsert')" },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
       },
@@ -82,7 +82,7 @@ return {
           indent = 2,
           padding = 1,
           pane = 3,
-          limit = 4,
+          limit = 5,
         },
 
         -- Projects
@@ -90,9 +90,9 @@ return {
           title = "Projects",
           section = "projects",
           indent = 2,
-          padding = 1,
+          padding = 0,
           pane = 3,
-          limit = 4,
+          limit = 3,
         },
         { section = "startup", pane = 1, padding = 1 },
       },
