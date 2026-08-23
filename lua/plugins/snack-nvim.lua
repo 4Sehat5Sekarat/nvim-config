@@ -22,8 +22,8 @@ local function header_set(header_type)
   elseif header_type == 2 then
     M = {
       section = "terminal",
-      cmd = "chafa --center on ~/.config/nvim/.alice.png; sleep 0.1 && printf '\\n'",
-      height = 10,
+      cmd = "chafa --center on ~/.config/nvim/.alice.png; sleep .1",
+      height = 11,
       padding = 0,
     }
   end
@@ -66,14 +66,33 @@ return {
       sections = {
         header_set(header),
 
-        { title = "Keymaps", section = "keys", indent = 2, padding = 1, pane = 2 },
+        -- Keymap
+        {
+          title = "Keymaps",
+          section = "keys",
+          indent = 2,
+          padding = 1,
+          pane = 2,
+        },
+
+        -- Recent files
         {
           title = "Recent Files",
           section = "recent_files",
           indent = 2,
           padding = 1,
           pane = 3,
-          limit = 10,
+          limit = 4,
+        },
+
+        -- Projects
+        {
+          title = "Projects",
+          section = "projects",
+          indent = 2,
+          padding = 1,
+          pane = 3,
+          limit = 4,
         },
         { section = "startup", pane = 1, padding = 1 },
       },
