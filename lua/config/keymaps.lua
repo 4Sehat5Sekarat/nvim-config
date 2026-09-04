@@ -3,9 +3,11 @@
 -- Add any additional keymaps here
 local keyset = vim.keymap.set
 
+keyset("n", "<down>", "gj")
+keyset("n", "<up>", "gk")
 keyset("t", "<C-o>", [[<C-\><C-n>]], { noremap = true, silent = true })
 
-keyset("n", "<leader>fd", ":lua Snacks.dashboard()<CR>", {
+keyset("n", "<leader>qa", ":lua Snacks.dashboard()<CR>", {
   noremap = true,
   silent = true,
   desc = "Open dashboard",

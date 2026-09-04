@@ -4,5 +4,3 @@
 
 vim.opt.relativenumber = false
 vim.opt.scrollback = 10000
-vim.keymap.set("n", "<down>", "gj")
-vim.keymap.set("n", "<up>", "gk")
