@@ -56,8 +56,8 @@ vim.api.nvim_create_user_command("LuaFunction", function(opts)
     return
   end
 
-  local ok, result = pcall(fn, unpack(args))
-  if not ok then
+  local oke, result = pcall(fn, unpack(args))
+  if not oke then
     vim.notify(result, vim.log.levels.ERROR)
     return
   end

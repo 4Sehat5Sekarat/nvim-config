@@ -21,7 +21,7 @@ function _G.FloatingYazi()
   vim.fn.jobstart({ "yazi" }, {
     term = true,
     env = {
-      EDITOR = "less",
+      EDITOR = "nvim --clean",
       VISUAL = "less",
     },
     on_exit = function()
