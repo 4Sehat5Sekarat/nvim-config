@@ -5,5 +5,4 @@ local files = vim.fn.globpath(custom_path, "*.lua", false, true)
 for _, file in ipairs(files) do
   local name = vim.fn.fnamemodify(file, ":t:r")
   require("custom.lua." .. name)
-  vim.print("custom.lua." .. name)
 end

@@ -22,9 +22,9 @@ local function header_set(header_type)
   elseif header_type == 2 then
     M = {
       section = "terminal",
-      cmd = "chafa --center on ~/.config/nvim/.alice.png; sleep .1",
-      height = 10,
-      padding = 1,
+      cmd = "chafa --center on ~/.config/nvim/.header.png; sleep .1; echo",
+      height = 11,
+      padding = 0,
     }
   end
   return M
